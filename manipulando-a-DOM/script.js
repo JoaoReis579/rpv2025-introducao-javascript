@@ -36,9 +36,15 @@ function resetarCoresDeFundoPadrao(){
 }
 
 function alteraCardAtivo(botaoClicado){
+    const todosOsCardsAtivos = document.getElementsByClassName('ativo')
+    for (let index = 0; index < todosOsCardsAtivos.length; index++) {
+        todosOsCardsAtivos[index].classList.remove('ativo')
+    }
     const cardClicado = document.getElementById(botaoClicado)
     cardClicado.classList.remove('padrao')
-    cardClicado.classList.toggle('ativo')
+    const estaAtivo = cardClicado.classList.contains('ativo')
+        ? cardClicado.classList.remove('ativo')
+        : cardClicado.classList.add('ativo')
     
     // if(estaAtivo){
     //     return cardClicado.classList.remove('ativo')
